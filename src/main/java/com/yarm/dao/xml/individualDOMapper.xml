@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yarm.dao.individualDOMapper" >
+  <resultMap id="BaseResultMap" type="com.yarm.pojo.individualDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="INTEGER" />
+    <result column="relationshipid" property="relationshipid" jdbcType="BIGINT" />
+    <result column="dateofbirth" property="dateofbirth" jdbcType="VARCHAR" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="isdeleted" property="isdeleted" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userid, name, gender, relationshipid, dateofbirth, created_at, isdeleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from individual
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from individual
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yarm.pojo.individualDO" >
+    insert into individual (id, userid, name, 
+      gender, relationshipid, dateofbirth, 
+      created_at, isdeleted)
+    values (#{id,jdbcType=BIGINT}, #{userid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{relationshipid,jdbcType=BIGINT}, #{dateofbirth,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{isdeleted,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yarm.pojo.individualDO" >
+    insert into individual
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="relationshipid != null" >
+        relationshipid,
+      </if>
+      <if test="dateofbirth != null" >
+        dateofbirth,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="relationshipid != null" >
+        #{relationshipid,jdbcType=BIGINT},
+      </if>
+      <if test="dateofbirth != null" >
+        #{dateofbirth,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yarm.pojo.individualDO" >
+    update individual
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="relationshipid != null" >
+        relationshipid = #{relationshipid,jdbcType=BIGINT},
+      </if>
+      <if test="dateofbirth != null" >
+        dateofbirth = #{dateofbirth,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null" >
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted = #{isdeleted,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yarm.pojo.individualDO" >
+    update individual
+    set userid = #{userid,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      relationshipid = #{relationshipid,jdbcType=BIGINT},
+      dateofbirth = #{dateofbirth,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      isdeleted = #{isdeleted,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

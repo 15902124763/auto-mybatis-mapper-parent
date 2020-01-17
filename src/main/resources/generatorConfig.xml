@@ -66,14 +66,14 @@
                     value="true" />
         </javaClientGenerator>
         <!-- 配置表信息 -->
-        <table schema="${jdbc_user}" tableName="t_user_1"
-               domainObjectName="User" enableCountByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               enableUpdateByExample="false">
-        </table>
+<!--        <table schema="${jdbc_user}" tableName="t_user_1"-->
+<!--               domainObjectName="User" enableCountByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               enableUpdateByExample="false">-->
+<!--        </table>-->
 
-        <table schema="${jdbc_user}" tableName="t_refund_info_1"
-               domainObjectName="RefundInfo" enableCountByExample="false"
+        <table schema="${jdbc_user}" tableName="individual"
+               domainObjectName="individualDO" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
         </table>
